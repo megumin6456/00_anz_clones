@@ -1,0 +1,25 @@
+origin_anz_cyborgs_collective = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_progenitor_hive.dds"
+	picture = GFX_origin_clone_army
+	
+	possible = {
+		authority = { value = auth_machine_intelligence }
+		civics = {
+			value = civic_machine_assimilator
+		}
+	}
+
+	playable = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+	}
+
+	description = "anz_cyborgs_origin_effects"
+	flags = { custom_start_screen }
+
+	random_weight = {
+		base = 0.2
+	}
+
+	advanced_start = no
+}

@@ -1,0 +1,151 @@
+# Basic Vats
+tech_cloning_basic_organic = {
+	area = society
+	category = { biology }	
+
+	tier = 2
+	cost = @tier2cost2
+	weight = @tier2weight2
+
+	icon = tech_cloning_basic
+	prerequisites = { "tech_cloning" }
+
+	potential = {
+		NOR = {
+			has_authority = auth_machine_intelligence
+			has_authority = auth_hive_mind
+		}
+		has_tradition = tr_genetics_adopt
+	}
+
+	weight_modifier = {
+		factor = 1.5
+		
+		modifier = {
+			factor = 1.25
+			has_trait_in_council = { trait = leader_trait_expertise_biology }
+		}
+	}
+
+	ai_weight = {
+		factor = @pop_growth_tech_ai_factor
+	}
+}
+
+# Improved Vats
+tech_cloning_improved_organic = {
+	area = society
+	category = { biology }
+
+	tier = 3
+	cost = @tier3cost1
+	weight = @tier3weight1
+
+	icon = tech_cloning_improved
+	prerequisites = { "tech_cloning_basic_organic" }
+
+	potential = {
+		NOR = {
+			has_authority = auth_machine_intelligence
+			has_authority = auth_hive_mind
+		}
+	}
+
+	weight_modifier = {
+		factor = 1.0
+
+		modifier = {
+			factor = 1.25
+			has_trait_in_council = { trait = leader_trait_expertise_biology }
+		}
+	}
+
+	ai_weight = {
+		factor = @pop_growth_tech_ai_factor
+	}
+}
+
+# Advanced Vats
+tech_cloning_advanced_organic = {
+	area = society
+	category = { biology }
+
+	tier = 4
+	is_rare = yes
+	cost = @tier4cost1
+	weight = @tier5weight1
+
+	icon = tech_cloning_advanced
+	prerequisites = { "tech_cloning_improved_organic" }
+
+	potential = {
+		NOR = {
+			has_authority = auth_machine_intelligence
+			has_authority = auth_hive_mind
+		}
+	}
+
+	weight_modifier = {
+		factor = 0.75
+
+		# Rare Tech
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+
+		modifier = {
+			factor = 1.25
+			has_trait_in_council = { trait = leader_trait_expertise_biology }
+		}
+	}
+
+	ai_weight = {
+		factor = @pop_growth_tech_ai_factor
+	}
+}
+
+# Augmented Vats
+tech_cloning_augmented_organic = {
+	area = society
+	category = { biology }
+
+	tier = 5
+	is_rare = yes
+	cost = 75000
+	weight = 0.5
+
+	icon = tech_cloning_augmented
+	prerequisites = {
+		"tech_cloning_advanced_organic"
+		"tech_combat_computers_3"
+		"tech_synthetic_workers"
+	}
+
+	potential = {
+		NOR = {
+			has_authority = auth_machine_intelligence
+			has_authority = auth_hive_mind
+		}
+	}
+
+	weight_modifier = {
+		factor = 0.2
+
+		# Rare Tech
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+
+		modifier = {
+			factor = 1.25
+			has_trait_in_council = { trait = leader_trait_expertise_biology }
+		}
+
+		modifier = {
+			factor = 1.5
+			has_trait_in_council = { trait = leader_trait_cyborg }
+		}
+	}
+}

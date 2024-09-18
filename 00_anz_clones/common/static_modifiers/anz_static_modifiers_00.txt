@@ -1,0 +1,12 @@
+planet_cloning_limits = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_politics.dds"
+	icon_frame = 2
+	custom_tooltip = stop_cloning
+	show_only_custom_tooltip = no
+	planet_anz_cloner_jobs_upkeep_mult = -1
+	planet_anz_cloner_buildings_upkeep_mult = -1
+}
+
+anz_organic_machine_buff = {
+	pop_growth_speed = 1
+}

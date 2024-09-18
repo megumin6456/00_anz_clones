@@ -1,0 +1,112 @@
+# Advanced Caretakers
+clone_caretaker_adv_organic = {
+	category = specialist
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_clone_vats_advanced
+	icon = clone_caretaker_adv
+	clothes_texture_index = 3
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_specialist_job
+	possible = {
+		complex_specialist_job_check_trigger = yes
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				NOT = { has_modifier = planet_cloning_limits }
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_modifier = planet_cloning_limits
+			}
+		}
+		modifier = {
+			planet_amenities_add = 5
+		}
+	}
+
+	resources = {
+		category = planet_anz_cloner_jobs
+		upkeep = {
+			consumer_goods = 4
+		}
+	}
+
+	weight = {
+		weight = 3000
+	}
+}
+
+# Augmented Caretakers
+clone_caretaker_aug_organic = {
+	category = specialist
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_clone_vats_advanced
+	icon = clone_caretaker_aug
+	clothes_texture_index = 3
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_specialist_job
+	possible = {
+		complex_specialist_job_check_trigger = yes
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				NOT = { has_modifier = planet_cloning_limits }
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 2.5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_modifier = planet_cloning_limits
+			}
+		}
+		modifier = {
+			planet_amenities_add = 5
+		}
+	}
+
+	resources = {
+		category = planet_anz_cloner_jobs
+		upkeep = {
+			consumer_goods = 5
+		}
+	}
+
+	# Spiritualist don't like working with robots
+	weight = {
+		weight = 3000
+		modifier = {
+			factor = 0.5
+			has_ethic = ethic_spiritualist
+		}
+	}
+}

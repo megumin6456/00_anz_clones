@@ -1,0 +1,17 @@
+# Categories
+
+planet_anz_cloner_buildings = {
+	use_for_ai_budget = yes
+	parent = planet_buildings
+	generate_mult_modifiers = {
+		upkeep
+	}
+}
+
+planet_anz_cloner_jobs = {
+	use_for_ai_budget = yes
+	parent = planet_jobs
+	generate_mult_modifiers = {
+		upkeep
+	}
+}

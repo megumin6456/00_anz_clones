@@ -1,0 +1,13 @@
+anz_clones_cc_replicator_counter = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		trigger_scope = planet
+		parameters = {
+			limit = {
+				has_job = replicator
+			}
+		}
+		mode = add
+	}
+}

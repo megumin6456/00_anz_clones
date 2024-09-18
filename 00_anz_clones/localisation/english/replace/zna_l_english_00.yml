@@ -1,0 +1,9 @@
+﻿l_english:
+
+# This file is used for overwriting
+
+tr_genetics_efficient_cloning_desc:0 "§Y$planet_anz_cloner_buildings$§! produce an additional §G+8%§! §Y$MOD_PLANET_POP_ASSEMBLY_ORGANIC_MULT$§!."
+
+tr_genetics_adopt_modifier_desc:0 "§YUnlocks Research Path:§! $planet_anz_cloner_buildings$\n$species_trait_points_add$: $POINTS|0=+$"
+
+tr_cybernetics_assimilator_adopt_desc:0 "Assimilating Organic £pop£ Pops now generates £engineering£ §YEngineering Research§!.\n§YResources§! generated from Assimilating Organic £pops£ Pops are increased.\n§YUnlocks Research Path:§! $planet_anz_cloner_buildings$"

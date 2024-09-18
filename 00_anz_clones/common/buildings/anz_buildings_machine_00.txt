@@ -1,0 +1,836 @@
+# Basic Vats
+building_clone_vats_basic_mech = {
+	base_buildtime = @b1_time
+	icon = building_clone_vats_basic
+	category = pop_assembly
+	position_priority = 100
+
+	base_cap_amount = 1
+
+	potential = {
+		exists = owner
+		owner = {
+			is_machine_empire = yes
+			has_civic = civic_machine_assimilator
+		}
+		NOT = { has_building = building_anz_cc_mainframe }
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			NOT = {
+				has_modifier = planet_cloning_limits
+				has_modifier = planet_population_control_gestalt
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			NOT = {
+				has_modifier = planet_cloning_limits
+				has_modifier = planet_population_control_gestalt
+			}
+			owner = { has_origin = origin_anz_cyborgs_collective }			
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 0.5
+			multiplier = value:anz_clones_cc_replicator_counter
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				has_tradition = tr_genetics_efficient_cloning
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_mult = 0.08
+		}
+	}
+
+	resources = {
+		category = planet_anz_cloner_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = no
+					is_organic_species = yes
+				}
+				NOT = {
+					has_modifier = planet_population_control_gestalt
+				}
+			}
+			food = 10
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = yes
+					is_organic_species = yes
+				}
+				NOT = {
+					has_modifier = planet_population_control_gestalt
+				}
+			}
+			minerals = 10
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	upgrades = {
+		building_clone_vats_improved_mech
+	}
+
+	convert_to = {
+		"building_clone_vats_basic_organic"
+		"building_clone_vats_improved_organic"
+		"building_clone_vats_advanced_organic"
+		"building_clone_vats_augmented_organic"
+		"building_clone_vats_basic_mech"
+		"building_clone_vats_improved_mech"
+		"building_clone_vats_advanced_mech"
+		"building_clone_vats_augmented_mech"
+		"building_clone_vats_basic_hive"
+		"building_clone_vats_improved_hive"
+		"building_clone_vats_augmented_hive"
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = { NOT = { has_civic = civic_machine_assimilator } }
+	}
+
+	prerequisites = {
+		"tech_cloning_basic_mech"
+	}
+
+	triggered_desc = {
+		trigger = {
+			has_building = building_robot_assembly_plant
+		}
+		text = tooltip_organic_and_artificial_assembly_warning
+	}
+}
+
+# Improved Vats
+building_clone_vats_improved_mech = {
+	base_buildtime = @b3_time
+	icon = building_clone_vats
+	category = pop_assembly
+	can_build = no
+	position_priority = 100
+
+	potential = {
+		exists = owner
+		owner = {
+			is_machine_empire = yes
+			has_civic = civic_machine_assimilator
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			NOT = {
+				has_modifier = planet_cloning_limits
+				has_modifier = planet_population_control_gestalt
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 4
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			NOT = {
+				has_modifier = planet_cloning_limits
+				has_modifier = planet_population_control_gestalt
+			}
+			owner = { has_origin = origin_anz_cyborgs_collective }			
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 0.5
+			multiplier = value:anz_clones_cc_replicator_counter
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				has_tradition = tr_genetics_efficient_cloning
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_mult = 0.08
+		}
+	}
+
+	resources = {
+		category = planet_anz_cloner_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = no
+					is_organic_species = yes
+				}
+				NOT = {
+					has_modifier = planet_population_control_gestalt
+				}
+			}
+			food = 20
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = yes
+					is_organic_species = yes
+				}
+				NOT = {
+					has_modifier = planet_population_control_gestalt
+				}
+			}
+			minerals = 20
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	upgrades = {
+		building_clone_vats_advanced_mech
+	}
+
+	convert_to = {
+		"building_clone_vats_basic_organic"
+		"building_clone_vats_improved_organic"
+		"building_clone_vats_advanced_organic"
+		"building_clone_vats_augmented_organic"
+		"building_clone_vats_basic_mech"
+		"building_clone_vats_improved_mech"
+		"building_clone_vats_advanced_mech"
+		"building_clone_vats_augmented_mech"
+		"building_clone_vats_basic_hive"
+		"building_clone_vats_improved_hive"
+		"building_clone_vats_augmented_hive"
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = { NOT = { has_civic = civic_machine_assimilator } }
+	}
+
+	prerequisites = {
+		"tech_cloning_improved_mech"
+	}
+}
+
+# Advanced Vats
+building_clone_vats_advanced_mech = {
+	base_buildtime = @b3_time
+	icon = building_clone_vats_advanced
+	category = pop_assembly
+	can_build = no
+	position_priority = 100
+
+	potential = {
+		exists = owner
+		owner = {
+			is_machine_empire = yes
+			has_civic = civic_machine_assimilator
+		}
+	}
+
+	planet_modifier = {
+		job_clone_caretaker_adv_mech_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			NOT = {
+				has_modifier = planet_cloning_limits
+				has_modifier = planet_population_control_gestalt
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 4
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			NOT = {
+				has_modifier = planet_cloning_limits
+				has_modifier = planet_population_control_gestalt
+			}
+			owner = { has_origin = origin_anz_cyborgs_collective }			
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 0.5
+			multiplier = value:anz_clones_cc_replicator_counter
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				has_tradition = tr_genetics_efficient_cloning
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_mult = 0.08
+		}
+	}
+
+	resources = {
+		category = planet_anz_cloner_buildings
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = no
+					is_organic_species = yes
+				}
+				NOT = {
+					has_modifier = planet_population_control_gestalt
+				}
+			}
+			food = 20
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = yes
+					is_organic_species = yes
+				}
+				NOT = {
+					has_modifier = planet_population_control_gestalt
+				}
+			}
+			minerals = 20
+		}
+		upkeep = {
+			energy = @b2_upkeep
+		}
+	}
+
+	upgrades = {
+		building_clone_vats_augmented_mech
+	}
+	
+	convert_to = {
+		"building_clone_vats_basic_organic"
+		"building_clone_vats_improved_organic"
+		"building_clone_vats_advanced_organic"
+		"building_clone_vats_augmented_organic"
+		"building_clone_vats_basic_mech"
+		"building_clone_vats_improved_mech"
+		"building_clone_vats_advanced_mech"
+		"building_clone_vats_augmented_mech"
+		"building_clone_vats_basic_hive"
+		"building_clone_vats_improved_hive"
+		"building_clone_vats_augmented_hive"
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = { NOT = { has_civic = civic_machine_assimilator } }
+	}
+
+	prerequisites = {
+		"tech_cloning_advanced_mech"
+	}
+}
+
+# Augmented Vats
+building_clone_vats_augmented_mech = {
+	base_buildtime = @b3_time
+	icon = building_clone_vats_augmented
+	category = pop_assembly
+	can_build = no
+	position_priority = 100
+
+	potential = {
+		exists = owner
+		owner = {
+			is_machine_empire = yes
+			has_civic = civic_machine_assimilator
+		}
+	}
+
+	planet_modifier = {
+		job_clone_caretaker_aug_mech_add = 4
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			NOT = {
+				has_modifier = planet_cloning_limits
+				has_modifier = planet_population_control_gestalt
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			NOT = {
+				has_modifier = planet_cloning_limits
+				has_modifier = planet_population_control_gestalt
+			}
+			owner = { has_origin = origin_anz_cyborgs_collective }			
+		}
+		modifier = {			
+			planet_pop_assembly_organic_add = 0.5
+			multiplier = value:anz_clones_cc_replicator_counter
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				has_tradition = tr_genetics_efficient_cloning
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_mult = 0.08
+		}
+	}
+
+	resources = {
+		category = planet_anz_cloner_buildings
+		cost = {
+			minerals = 1500
+			alloys = 500
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = no
+					is_organic_species = yes
+				}
+				NOT = {
+					has_modifier = planet_cloning_limits
+					has_modifier = planet_population_control_gestalt
+				}
+			}
+			food = 25
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = yes
+					is_organic_species = yes
+				}
+				NOT = {
+					has_modifier = planet_cloning_limits
+					has_modifier = planet_population_control_gestalt
+				}
+			}
+			minerals = 25
+		}
+		upkeep = {
+			energy = @b3_upkeep
+		}
+	}
+
+	convert_to = {
+		"building_clone_vats_basic_organic"
+		"building_clone_vats_improved_organic"
+		"building_clone_vats_advanced_organic"
+		"building_clone_vats_augmented_organic"
+		"building_clone_vats_basic_mech"
+		"building_clone_vats_improved_mech"
+		"building_clone_vats_advanced_mech"
+		"building_clone_vats_augmented_mech"
+		"building_clone_vats_basic_hive"
+		"building_clone_vats_improved_hive"
+		"building_clone_vats_augmented_hive"
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = { NOT = { has_civic = civic_machine_assimilator } }
+	}
+
+	prerequisites = {
+		"tech_cloning_augmented_mech"
+	}
+}
+
+# Cyborg Origin
+building_anz_cc_mainframe = {
+	base_buildtime = 0
+	category = government
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 1
+
+	convert_to = {
+		building_machine_capital
+	}
+
+	potential = {
+		exists = owner
+		owner = { has_origin = origin_anz_cyborgs_collective }
+	}
+
+	destroy_trigger = {
+		OR = {
+			check_variable = {
+				which = anz_clones_hibpops
+				value = 0
+			}
+			owner = { NOT = { has_origin = origin_anz_cyborgs_collective } }
+			years_passed > 50
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_pops < 16
+			num_pops > 5
+		}
+		modifier = {
+			planet_amenities_no_happiness_add = 10
+			job_maintenance_drone_add = -30
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_pops > 15
+			num_pops < 31
+		}
+		modifier = {
+			planet_amenities_no_happiness_add = 20
+			job_maintenance_drone_add = -20
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_pops > 50
+			num_pops < 56
+		}
+		modifier = {
+			planet_amenities_no_happiness_add = 10
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_pops > 45
+			num_pops < 51
+		}
+		modifier = {
+			planet_amenities_no_happiness_add = 20
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_pops > 40
+			num_pops < 46
+		}
+		modifier = {
+			planet_amenities_no_happiness_add = 30
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_pops > 30
+			num_pops < 41
+		}
+		modifier = {
+			planet_amenities_no_happiness_add = 40
+			job_maintenance_drone_add = -10
+		}
+	}
+
+	triggered_desc = {
+		text = building_anz_cc_mainframe_tooltip_hib
+		trigger = {
+			check_variable = {
+				which = anz_clones_hibpops
+				value > 0
+			}
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			check_variable = {
+				which = anz_clones_hibpops
+				value > 20
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 12
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			check_variable = {
+				which = anz_clones_hibpops
+				value < 21
+			}
+			check_variable = {
+				which = anz_clones_hibpops
+				value > 10
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 10
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			check_variable = {
+				which = anz_clones_hibpops
+				value < 11
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 8
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_pops > 20
+			num_pops < 31
+		}
+		modifier = {
+			job_patrol_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_pops > 30
+			num_pops < 41
+		}
+		modifier = {
+			job_patrol_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			num_pops > 40
+		}
+		modifier = {
+			job_patrol_drone_add = 3
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 4
+		planet_max_buildings_add = 1
+		defense_armies_add = 2
+	}
+
+	resources = {
+		category = planet_buildings
+
+		upkeep = {
+			energy = 15
+		}
+
+		produces = {
+			trigger = {
+				owner = {
+					NOT = {
+						any_situation = {
+							has_situation_flag = deficit_situation
+						}
+					}
+				}
+				years_passed < 10
+			}
+			physics_research = 15
+			society_research = 15
+			engineering_research = 15
+			unity = 12
+		}
+
+		produces = {
+			trigger = {
+				owner = {
+					NOT = {
+						any_situation = {
+							has_situation_flag = deficit_situation
+						}
+					}
+				}
+				years_passed > 9
+				years_passed < 21
+			}
+			physics_research = 23
+			society_research = 23
+			engineering_research = 23
+			unity = 24
+		}
+		
+		produces = {
+			trigger = {
+				owner = {
+					NOT = {
+						any_situation = {
+							has_situation_flag = deficit_situation
+						}
+					}
+				}
+				years_passed > 20
+				years_passed < 31
+			}
+			physics_research = 30
+			society_research = 30
+			engineering_research = 30
+			unity = 36
+		}
+
+		produces = {
+			trigger = {
+				owner = {
+					NOT = {
+						any_situation = {
+							has_situation_flag = deficit_situation
+						}
+					}
+				}
+				years_passed > 30
+			}
+			physics_research = 40
+			society_research = 40
+			engineering_research = 40
+			unity = 50
+		}
+
+
+		produces = {
+			trigger = {
+				owner = {
+					country_has_situation = {
+						SITUATION = situation_energy_deficit
+					}
+				}
+			}
+			energy = 20
+		}
+
+		produces = {
+			trigger = {
+				owner = {
+					country_has_situation = {
+						SITUATION = situation_mineral_deficit
+					}
+					owner_main_species = {
+						NOT = { has_trait = trait_lithoid }
+					}
+				}
+			}
+			minerals = 20
+		}
+
+		produces = {
+			trigger = {
+				owner = {
+					country_has_situation = {
+						SITUATION = situation_mineral_deficit
+					}
+					owner_main_species = {
+						has_trait = trait_lithoid
+					}
+				}
+			}
+			minerals = 35
+		}
+
+		produces = {
+			trigger = {
+				owner = {
+					country_has_situation = {
+						SITUATION = situation_food_deficit
+					}
+				}
+			}
+			food = 15
+		}
+
+		upkeep = {
+			trigger = {
+				check_variable = {
+					which = anz_clones_hibpops
+					value > 0
+				}
+				owner_main_species = {
+					NOT = { has_trait = trait_lithoid }
+				}
+			}
+			food = 0.2
+			multiplier = anz_clones_hibpops
+		}
+
+		upkeep = {
+			trigger = {
+				check_variable = {
+					which = anz_clones_hibpops
+					value > 0
+				}
+				owner_main_species = {
+					has_trait = trait_lithoid
+				}
+			}
+			minerals = 0.2
+			multiplier = anz_clones_hibpops
+		}
+	}
+}

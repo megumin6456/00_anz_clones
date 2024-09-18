@@ -1,0 +1,257 @@
+namespace = anz_clones
+
+# Register mod, check for 'anz_clones_installed'
+event = {
+	id = anz_clones.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = { NOT = { has_global_flag = anz_clones_installed } }
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_global_flag = anz_clones_installed }}
+			set_global_flag = anz_clones_installed
+		}
+	}
+}
+
+# Become Cyborgs
+planet_event = {
+	id = anz_clones.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_pop = {
+			limit = {
+				has_trait = trait_cybernetic
+				NOR = {
+					has_trait = trait_machine_unit
+					has_trait = trait_mechanical
+				}
+			}
+			species = {
+				save_event_target_as = anz_clones_transform_target
+			}
+		}
+		every_owned_pop = {
+			limit = {
+				has_trait = trait_machine_unit
+			}
+			root = {
+				create_pop = {
+					species = event_target:anz_clones_transform_target
+				}
+			}
+			kill_pop = yes
+		}
+	}
+}
+
+# Cyborg origin
+country_event = {
+	id = anz_clones.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_anz_cyborgs_collective
+	}
+
+	immediate = {
+		add_modifier = {
+			modifier = anz_organic_machine_buff
+			days = -1
+		}
+
+		capital_scope = {
+			# Save event target for cyborgs
+			random_owned_species = {
+				limit = {
+					has_trait = trait_cybernetic
+					NOR = {
+						has_trait = trait_machine_unit
+						has_trait = trait_mechanical
+					}
+				}
+				save_event_target_as = anz_clones_transform_target
+			}
+			
+			# statis cyborgs
+			set_variable = {
+				which = anz_clones_hibpops
+				value = 10
+			}
+
+			# Random stasis pop count
+			random_list = {
+				5 = {
+					change_variable = {
+						which = anz_clones_hibpops
+						value = 5
+					}
+				}
+				4 = {
+					change_variable = {
+						which = anz_clones_hibpops
+						value = 6
+					}
+				}
+				3 = {
+					change_variable = {
+						which = anz_clones_hibpops
+						value = 7
+					}
+				}
+				2 = {
+					change_variable = {
+						which = anz_clones_hibpops
+						value = 8
+					}
+				}
+				1 = {
+					change_variable = {
+						which = anz_clones_hibpops
+						value = 9
+					}
+				}
+			}
+
+			multiply_variable = {
+				which = anz_clones_hibpops
+				value = 3
+			}
+
+			# Kill all machine pops & mark them as statis cyborgs
+			every_owned_pop = {
+				limit = {
+					has_trait = trait_machine_unit
+				}
+				kill_pop = yes
+			}
+
+			# Wreck the planet
+			clear_blockers = yes
+			remove_all_districts = yes
+			reroll_deposits = yes
+			while = {
+				count = 4
+				add_random_non_blocker_deposit = yes
+			}
+			while = {
+				count = 4
+				add_blocker = {
+					type = d_tomb_world_wasteland
+				}
+			}
+			while = {
+				count = 3
+				add_blocker = {
+					type = d_bomb_crater
+				}
+			}
+			remove_all_buildings = yes
+
+			add_building = building_anz_cc_mainframe
+			add_building = building_drone_storage
+
+			# Now rebuild it
+			add_district = district_industrial
+			add_district = district_generator
+			add_district = district_mining
+
+			validate_planet_buildings_and_districts = yes
+
+			if = {
+				limit = {
+					event_target:anz_clones_transform_target = {
+						has_trait = trait_lithoid
+					}
+				}
+				add_district = district_mining
+				add_district = district_mining
+			} else = {
+				add_district = district_farming
+				add_district = district_farming
+			}
+			
+			# Set main species & kill leaders
+			owner = {
+				change_dominant_species = { species = event_target:anz_clones_transform_target change_all = yes }
+				every_owned_leader = {
+					kill_leader = {
+						show_notification = no
+					}
+				}
+				every_pool_leader = {
+					kill_leader = {
+						show_notification = no
+					}
+				}
+				every_envoy = {
+					kill_leader = {
+						show_notification = no
+					}
+				}
+				add_resource = {
+					unity = 80
+				}
+				create_leader = {
+					class = random_ruler
+					species = this
+					skill = 1
+					leader_age_max = 45
+					leader_age_min = 20
+					event_leader = yes
+					can_manually_change_location = no
+				}
+				assign_leader = last_created_leader
+				ruler = {
+					add_trait_no_notify = leader_trait_ruler_machine_intelligence
+				}
+			}
+
+			# Reduce orbital infrastructure
+			solar_system = {
+				every_ship_in_system = {
+					limit = {
+						OR = {
+							is_ship_class = shipclass_constructor
+							is_ship_class = shipclass_science_ship
+							is_ship_class = shipclass_military
+						}
+					}
+					destroy_ship = this
+				}
+			}
+		}
+	}
+}
+
+# Count deployed clones
+planet_event = {
+	id = anz_clones.4
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = { has_origin = origin_anz_cyborgs_collective }
+		is_variable_set = anz_clones_hibpops
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				check_variable = {
+					which = anz_clones_hibpops
+					value > 0
+				}
+			}
+			subtract_variable = {
+				which = anz_clones_hibpops
+				value = 1
+			}
+		}
+	}
+}

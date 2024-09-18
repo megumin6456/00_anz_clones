@@ -1,0 +1,44 @@
+# For the future
+
+anz_clones_food_minimum = {
+	resource = food
+	type = expenditure
+	category = planet_anz_cloner_buildings
+
+	potential = {
+		if = { # Lithoids
+			limit = { is_lithoid = yes }
+			has_resource = { type = minerals amount > 1500 }
+			has_monthly_income = {
+				resource = minerals
+				value > 70
+			}
+		} else = { # Organics
+			has_resource = { type = minerals amount > 1200 }
+			has_resource = { type = food amount > 700 }
+			has_monthly_income = {
+				resource = food
+				value > 50
+			}
+		}
+	}
+
+	weight = {
+		weight = 1
+	}
+}
+
+# Dummy to clear cvtools errors
+anz_clones_dummy_00 = {
+	resource = sr_zro
+	type = expenditure
+	category = planet_anz_cloner_jobs
+
+	potential = {
+		always = no
+	}
+
+	weight = {
+		weight = 0
+	}
+}

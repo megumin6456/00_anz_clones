@@ -1,0 +1,154 @@
+# Basic Vats
+tech_cloning_basic_mech = {
+	area = society
+	category = { biology }	
+
+	tier = 2
+	cost = @tier2cost2
+	weight = @tier2weight2
+
+	start_tech = yes
+
+	icon = tech_cloning_basic
+	prerequisites = { "tech_cloning" }
+
+	potential = {
+		has_civic = civic_machine_assimilator
+		OR = {
+			has_tradition = tr_cybernetics_assimilator_adopt
+			has_origin = origin_anz_cyborgs_collective
+		}
+	}
+
+	starting_potential = {
+		has_origin = origin_anz_cyborgs_collective
+	}
+
+	weight_modifier = {
+		factor = 1.5
+		
+		modifier = {
+			factor = 1.25
+			has_trait_in_council = { trait = leader_trait_expertise_biology }
+		}
+	}
+
+	ai_weight = {
+		factor = @pop_growth_tech_ai_factor
+	}
+}
+
+# Improved Vats
+tech_cloning_improved_mech = {
+	area = society
+	category = { biology }
+
+	tier = 3
+	cost = @tier3cost1
+	weight = @tier3weight1
+
+	icon = tech_cloning_improved
+	prerequisites = { "tech_cloning_basic_mech" }
+
+	potential = {
+		has_civic = civic_machine_assimilator
+	}
+
+	weight_modifier = {
+		factor = 1.0
+
+		modifier = {
+			factor = 1.25
+			has_trait_in_council = { trait = leader_trait_expertise_biology }
+		}
+	}
+
+	ai_weight = {
+		factor = @pop_growth_tech_ai_factor
+	}
+}
+
+# Advanced Vats
+tech_cloning_advanced_mech = {
+	area = society
+	category = { biology }
+
+	tier = 4
+	is_rare = yes
+	cost = @tier5cost1
+	weight = 10
+
+	icon = tech_cloning_advanced
+	prerequisites = {
+		"tech_cloning_improved_mech"
+		"tech_autonomous_agents"
+	}
+
+	potential = {
+		has_civic = civic_machine_assimilator
+	}
+
+	weight_modifier = {
+		factor = 0.75
+
+		# Rare Tech
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+
+		modifier = {
+			factor = 1.25
+			has_trait_in_council = { trait = leader_trait_expertise_biology }
+		}
+	}
+
+	ai_weight = {
+		factor = @pop_growth_tech_ai_factor
+	}
+}
+
+# Augmented Vats
+tech_cloning_augmented_mech = {
+	area = society
+	category = { biology }
+
+	tier = 5
+	is_rare = yes
+	cost = 75000
+	weight = 0.5
+
+	icon = tech_cloning_augmented
+	prerequisites = {
+		"tech_cloning_advanced_mech"
+		"tech_combat_computers_autonomous"
+	}
+
+	potential = {
+		has_civic = civic_machine_assimilator
+	}
+
+	weight_modifier = {
+		factor = 0.2
+
+		# Rare Tech
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+
+		modifier = {
+			factor = 1.25
+			has_trait_in_council = { trait = leader_trait_expertise_biology }
+		}
+
+		modifier = {
+			factor = 1.5
+			has_trait_in_council = { trait = leader_trait_cyborg }
+		}
+	}
+
+	ai_weight = {
+		factor = @pop_growth_tech_ai_factor
+	}
+}

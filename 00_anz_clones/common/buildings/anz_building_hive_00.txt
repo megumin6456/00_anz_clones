@@ -1,0 +1,352 @@
+# Hive Minds
+
+# Basic Vats
+building_clone_vats_basic_hive = {
+	base_buildtime = @b1_time
+	category = pop_assembly
+	position_priority = 100
+
+	base_cap_amount = 1
+
+	potential = {
+		exists = owner
+		owner = {
+			is_hive_empire = yes
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			NOT = {
+				has_modifier = planet_cloning_limits
+				has_modifier = planet_population_control_gestalt
+			}
+		}
+		modifier = {
+			job_spawning_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				has_tradition = tr_genetics_efficient_cloning
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_mult = 0.08
+		}
+	}
+
+	resources = {
+		category = planet_anz_cloner_buildings
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = yes
+				}
+			}
+			minerals = 500
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid = no
+				}
+			}
+			food = 500
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = no
+					is_organic_species = yes
+				}
+				NOT = { has_modifier = planet_cloning_limits }
+			}
+			food = 5
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = yes
+					is_organic_species = yes
+				}
+				NOT = { has_modifier = planet_cloning_limits }
+			}
+			minerals = 5
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	upgrades = {
+		building_clone_vats_improved_hive
+	}
+
+	convert_to = {
+		"building_clone_vats_basic_organic"
+		"building_clone_vats_improved_organic"
+		"building_clone_vats_advanced_organic"
+		"building_clone_vats_augmented_organic"
+		"building_clone_vats_basic_mech"
+		"building_clone_vats_improved_mech"
+		"building_clone_vats_advanced_mech"
+		"building_clone_vats_augmented_mech"
+		"building_clone_vats_basic_hive"
+		"building_clone_vats_improved_hive"
+		"building_clone_vats_augmented_hive"
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_hive_empire = no }
+	}
+
+	prerequisites = {
+		"tech_cloning_basic_hive"
+	}
+}
+
+# Improved Vats
+building_clone_vats_improved_hive = {
+	base_buildtime = @b3_time
+	category = pop_assembly
+	can_build = no
+	position_priority = 100
+
+	potential = {
+		exists = owner
+		owner = {
+			is_hive_empire = yes
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			NOT = {
+				has_modifier = planet_cloning_limits
+				has_modifier = planet_population_control_gestalt
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_mult = 0.1
+			job_spawning_drone_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				has_tradition = tr_genetics_efficient_cloning
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_mult = 0.08
+		}
+	}
+
+	resources = {
+		category = planet_anz_cloner_buildings
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = yes
+				}
+			}
+			minerals = 1000
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid = no
+				}
+			}
+			food = 1000
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = no
+					is_organic_species = yes
+				}
+				NOT = { has_modifier = planet_cloning_limits }
+			}
+			food = 10
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = yes
+					is_organic_species = yes
+				}
+				NOT = { has_modifier = planet_cloning_limits }
+			}
+			minerals = 10
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	upgrades = {
+		building_clone_vats_augmented_hive
+	}
+
+	convert_to = {
+		"building_clone_vats_basic_organic"
+		"building_clone_vats_improved_organic"
+		"building_clone_vats_advanced_organic"
+		"building_clone_vats_augmented_organic"
+		"building_clone_vats_basic_mech"
+		"building_clone_vats_improved_mech"
+		"building_clone_vats_advanced_mech"
+		"building_clone_vats_augmented_mech"
+		"building_clone_vats_basic_hive"
+		"building_clone_vats_improved_hive"
+		"building_clone_vats_augmented_hive"
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_hive_empire = no }
+	}
+
+	prerequisites = {
+		"tech_cloning_improved_hive"
+	}
+}
+
+# Augmented Vats
+building_clone_vats_augmented_hive = {
+	base_buildtime = @b3_time
+	category = pop_assembly
+	can_build = no
+	position_priority = 100
+
+	potential = {
+		exists = owner
+		owner = {
+			is_hive_empire = yes
+		}
+	}
+
+	planet_modifier = {
+		planet_pop_assembly_organic_mult = 0.2
+		job_clone_caretaker_aug_hive_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			NOT = {
+				has_modifier = planet_cloning_limits
+				has_modifier = planet_population_control_gestalt
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				has_tradition = tr_genetics_efficient_cloning
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_mult = 0.08
+		}
+	}
+
+	resources = {
+		category = planet_anz_cloner_buildings
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = yes
+				}
+			}
+			minerals = 1500
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid = no
+				}
+			}
+			food = 1500
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = no
+					is_organic_species = yes
+				}
+				NOT = { has_modifier = planet_cloning_limits }
+			}
+			food = 10
+		}
+		upkeep = {
+			trigger = {
+				exists = assembling_species
+				assembling_species = {
+					is_lithoid = yes
+					is_organic_species = yes
+				}
+				NOT = { has_modifier = planet_cloning_limits }
+			}
+			minerals = 10
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	convert_to = {
+		"building_clone_vats_basic_organic"
+		"building_clone_vats_improved_organic"
+		"building_clone_vats_advanced_organic"
+		"building_clone_vats_augmented_organic"
+		"building_clone_vats_basic_mech"
+		"building_clone_vats_improved_mech"
+		"building_clone_vats_advanced_mech"
+		"building_clone_vats_augmented_mech"
+		"building_clone_vats_basic_hive"
+		"building_clone_vats_improved_hive"
+		"building_clone_vats_augmented_hive"
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_hive_empire = no }
+	}
+
+	prerequisites = {
+		"tech_cloning_augmented_hive"
+	}
+}

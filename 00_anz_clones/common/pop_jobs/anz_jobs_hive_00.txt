@@ -1,0 +1,76 @@
+# Augmented Caretakers
+clone_caretaker_aug_hive = {
+	category = complex_drone
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_clone_vats_augmented_hive
+	icon = clone_caretaker_aug
+	clothes_texture_index = 3
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_drone_job
+
+	possible = { NOT = { has_trait = trait_nerve_stapled } }
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				NOT = {
+					has_modifier = planet_cloning_limits
+					has_modifier = planet_population_control_gestalt
+				}
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 2.5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_modifier = planet_cloning_limits
+			}
+		}
+		modifier = {
+			planet_amenities_add = 2.5
+		}
+	}
+
+	resources = {
+		category = planet_anz_cloner_jobs
+		upkeep = {
+			trigger = {
+				prevprev = {
+					exists = assembling_species
+					assembling_species = {
+						is_lithoid = no
+						is_organic_species = yes
+					}
+				}
+			}
+			food = 2.5
+		}
+		upkeep = {
+			trigger = {
+				prevprev = {
+					exists = assembling_species
+					assembling_species = {
+						is_lithoid = yes
+						is_organic_species = yes
+					}
+				}
+			}
+			minerals = 2.5
+		}
+	}
+
+	weight = {
+		weight = 6000
+	}
+}

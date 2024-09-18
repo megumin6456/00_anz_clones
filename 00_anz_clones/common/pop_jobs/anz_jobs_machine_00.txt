@@ -1,0 +1,121 @@
+### DRIVEN ASSIMILATORS
+
+# Advanced Caretakers
+clone_caretaker_adv_mech = {
+	category = simple_drone
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_clone_vats_advanced
+	icon = clone_caretaker_adv
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_drone_job
+
+	possible = { NOT = { has_trait = trait_nerve_stapled } }
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				NOT = {
+					has_modifier = planet_population_control_gestalt
+				}
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_modifier = planet_population_control_gestalt
+			}
+		}
+		modifier = {
+			planet_amenities_no_happiness_add = 5
+		}
+	}
+
+	resources = {
+		category = planet_anz_cloner_jobs
+		upkeep = {
+			alloys = 4
+		}
+	}
+
+	# Cyborgs makes Cyborgs
+	weight = {
+		weight = 3000
+		modifier = {
+			factor = 2
+			has_trait = trait_cybernetic
+		}
+	}
+}
+
+# Augmented Caretakers
+clone_caretaker_aug_mech = {
+	category = simple_drone
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_clone_vats_augmented
+	icon = clone_caretaker_aug
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_drone_job
+
+	possible = { NOT = { has_trait = trait_nerve_stapled } }
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				NOT = {
+					has_modifier = planet_population_control_gestalt
+				}
+			}
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 2.5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_modifier = planet_population_control_gestalt
+			}
+		}
+		modifier = {
+			planet_amenities_no_happiness_add = 5
+		}
+	}
+
+	resources = {
+		category = planet_anz_cloner_jobs
+		upkeep = {
+			alloys = 4
+		}
+	}
+
+	# Cyborgs makes Cyborgs
+	weight = {
+		weight = 3000
+		modifier = {
+			factor = 2
+			has_trait = trait_cybernetic
+		}
+	}
+}

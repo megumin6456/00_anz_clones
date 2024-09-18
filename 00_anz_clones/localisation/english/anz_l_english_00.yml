@@ -1,0 +1,166 @@
+﻿l_english:
+
+# Modifiers
+stop_cloning: "§RANZ Cloning operation have been paused on this planet§!"
+anz_organic_machine_buff: "Cyborg Collective"
+
+# Decisions
+decision_enact_cloning_limits: "Cease Cloning Operations"
+decision_enact_cloning_limits_desc: "Stop cloning operations, this will only affect ANZ Clone Vats."
+decision_enact_cloning_limits_effects_short: "Stop cloning operations."
+
+decision_end_cloning_limits: "Resume Cloning Operations"
+decision_end_cloning_limits_desc: "We need more clones!"
+decision_end_cloning_limits_effects_short: "Cloning will now resume."
+
+planet_cloning_limits: "Cloning vats are paused"
+planet_cloning_limits_desc: "Our cloning operations are paused for now."
+
+decision_become_cyborgs: "Change all Machines into Organics"
+decision_become_cyborgs_desc: "With the power of £sr_dark_matter£ §EDark Matter§!, we can transform all our §YMachine Pops§! into §YCyborg Drones§!.\n\n§RWE ARE MACHINES WITH SOULS!§!"
+decision_become_cyborgs_tooltip_fail_1: "$TRIGGER_FAIL$There are no §YOrganic Pops§! here."
+decision_become_cyborgs_tooltip_fail_2: "$TRIGGER_FAIL$There are no §YMachine Pops§! here."
+
+# Categories
+planet_anz_cloner_jobs: "ANZ Cloning Jobs"
+mod_planet_anz_cloner_jobs_upkeep_mult: "ANZ Cloner Jobs Upkeep"
+
+planet_anz_cloner_buildings: "ANZ Clone Vats"
+mod_planet_anz_cloner_buildings_upkeep_mult: "ANZ Clone Vats Upkeep"
+
+######### Origin - Cyborg Collective ###########################
+
+origin_anz_cyborgs_collective: "Cyborg Collective"
+origin_anz_cyborgs_collective_desc: "§LHere lies the legacy of a primitive world who's population growth far outstripped their technological capabilities. Rampant hunger and resource starvation gave birth to crime. Crime escalated to war, war brought chaos, and the perfect dystopia was born.\n\nWith promises to fix their world, a grand Machine Complex was created, capable of housing all the homeless and unemployed. Overtime this AI became the sole governing body of this world and so when it decided the best way to fix this civilization is to truly unify everyone with itself, the end was all but certain.§!"
+
+start_screen_anz_cyborgs: "After a short period of recovery and reorganization, something important came to our attention. If xeno lifeforms exist in this galaxy they may not take kindly to our actions here, they might try to destroy us and give \"free will\" back to our drones.\n\nWe are not ready to conquer the stars but that's the only way to defend our network. So we launched a preemptive space program for we will survive, all will be unified."
+
+anz_cyborgs_origin_effects: "§RWARNING: Brutal Origin §W|§! Low Tech Start §W|§! Try not to die challenge§!\n\n - Starts with only §H10 Cybernetic Pops§! and §HZero Machine Pops§!.\n - Cannot assemble §HMachine Pops§! until one is captured from another empire.\n - Starts without any §HLeaders§! or the ability to recruit them.\n - Starts with reduced orbial infrastructure.\n - Planet is in a underdeveloped state.\n\n - Starts with §G+80§! §HUnity§! stockpile.\n - Starts with Building: §H$building_anz_cc_mainframe$§! to help you not die.\n - Starts with Technology: §H$building_clone_vats_basic_mech$§!.\n - §HCyborg Vats§!: §G+0.5§! organic pop assembly per §H$job_replicator$§! job.\n - §HGrowth Speed§!: §G+100%§! to counteract the §R50%§! that machines get.\n\n\n - Your mission? §RSurvive...§!"
+
+building_anz_cc_mainframe: "System Mainframe"
+building_anz_cc_mainframe_desc: "The original machine complex which house the rouge ai who now dominates over this empire. Designed to repair a dying civilization, it will now carry out our task until all of it's resource banks are exhausted...\n\n§WEffects:\n - Produce research and unity if not in economic deficit\n - Produce amenities based on the number of pops\n - Provides $job_patrol_drone$ jobs based on the number of pops.\n - Production will eventually stop as the machine exhaust itself\n - Deploy individuals stored in Statis Pods via pop assembly\n - Each Stasis Pod cost 0.2 food / minerals for upkeep.\n - Produce basic resources if in deficit.§!\n\n§YAutomatically dismantled when all stasis pods are deployed or after 50 years.§!"
+
+building_anz_cc_mainframe_tooltip_hib: "Remaining Statis Pods: §G+[root.anz_clones_hibpops]§!"
+
+######### Building / Tech / Jobs - Organic ####################
+
+# Basic Vats
+building_clone_vats_basic_organic: "Basic Clone Vats"
+building_clone_vats_basic_organic_desc: "While inefficient, these facilities provide basic cloning capabilities for organic empires."
+
+# Basic Tech
+tech_cloning_basic_organic: "Basic Clone Vats"
+tech_cloning_basic_organic_desc: "By improving upon our previous cloning tech we've gained full body cloning capabilities. "
+
+# Improved Vats
+building_clone_vats_improved_organic: "Improved Clone Vats"
+building_clone_vats_improved_organic_desc: "Enlarged clones vats that breeds almost twice as many clones but doubles the upkeep."
+
+# Improved Tech
+tech_cloning_improved_organic: "Upscaled Vats"
+tech_cloning_improved_organic_desc: "Directly upscaling our clone vats might not be the best idea but it works."
+
+# Advanced Vats
+building_clone_vats_advanced_organic: "Advanced Clone Vats"
+building_clone_vats_advanced_organic_desc: "Clone Caretakers work with automated machinary in this facility to help clones mature."
+
+# Advanced Tech
+tech_cloning_advanced_organic: "Clone Overseers"
+tech_cloning_advanced_organic_desc: "Employee our medical staff at our cloning facilities to nurture these clones."
+
+# Advanced Jobs
+job_clone_caretaker_adv_organic: "Clone Caretaker"
+job_clone_caretaker_adv_organic_plural: "Clone Caretakers"
+job_clone_caretaker_adv_organic_desc: "These specialists work hard to make sure not a single clone will go without care."
+mod_job_clone_caretaker_adv_organic_add: "Clone Caretaker Jobs"
+
+# Augmented Vats
+building_clone_vats_augmented_organic: "Augmented Clone Vats"
+building_clone_vats_augmented_organic_desc: "Extremely advanced cloning vats augmented with sapient machines to work alongside organics breeding us a Legion of Clones!"
+
+# Augmented Tech
+tech_cloning_augmented_organic: "Augmented Cloning Vats"
+tech_cloning_augmented_organic_desc: "Thanks to our breakthroughs in both AI and Cloning techs, we can now augment our cloning vats with synthetics allowing it to work much reliably.\n\nWE ARE LEGION!"
+
+# Augmented Jobs
+job_clone_caretaker_aug_organic: "Augmented Caretaker"
+job_clone_caretaker_aug_organic_plural: "Augmented Caretakers"
+job_clone_caretaker_aug_organic_desc: "These specialists work alongside the sapient machines to breed legions of clones."
+mod_job_clone_caretaker_aug_organic_add: "Augmented Caretaker Jobs"
+
+######### Building / Tech / Jobs - Machine ####################
+
+# Basic Vats
+building_clone_vats_basic_mech: "Basic Cyborg Vats"
+building_clone_vats_basic_mech_desc: "While inefficient, these facilities provide basic cloning capabilities for our cyborgs."
+
+# Basic Tech
+tech_cloning_basic_mech: "Basic Cyborg Vats"
+tech_cloning_basic_mech_desc: "By improving upon our previous cloning tech we've gained full body cloning capabilities."
+
+# Improved Vats
+building_clone_vats_improved_mech: "Large Cyborg Vats"
+building_clone_vats_improved_mech_desc: "Enlarged vats that breeds almost twice as many clones but doubles the upkeep."
+
+# Improved Tech
+tech_cloning_improved_mech: "Large Cyborg Vats"
+tech_cloning_improved_mech_desc: "Directly upscaling our vats might not be the most efficient but can yield more cyborgs."
+
+# Advanced Vats
+building_clone_vats_advanced_mech: "Integrated Cyborg Vats"
+building_clone_vats_advanced_mech_desc: "The Machine Intellegence clones large amount of cyborgs here and intergrates them into the collective."
+
+# Advanced Tech
+tech_cloning_advanced_mech: "Integrated Cyborg Vats"
+tech_cloning_advanced_mech_desc: "By assigning autonomous drones to direct these facilites, we can reduce wasted clones."
+
+# Advanced Jobs
+job_clone_caretaker_adv_mech: "Cyborg Caretaker"
+job_clone_caretaker_adv_mech_plural: "Cyborg Caretakers"
+job_clone_caretaker_adv_mech_desc: "These drones overseer batches of newly formed clones before processing them."
+mod_job_clone_caretaker_adv_mech_add: "Cyborg Caretaker Drones"
+
+# Augmented Vats
+building_clone_vats_augmented_mech: "Ultimate Cyborg Vats"
+building_clone_vats_augmented_mech_desc: "Extremely advanced cloning vats breeding a legion of cyborg drones to serve the collective."
+
+# Augmented Tech
+tech_cloning_augmented_mech: "Ultimate Cyborg Vats"
+tech_cloning_augmented_mech_desc: "The Machine Intellegence will directly oversee cloning operations allowing it to operate at top notch efficiency."
+
+# Augmented Jobs
+job_clone_caretaker_aug_mech: "Cyborg Integrater"
+job_clone_caretaker_aug_mech_plural: "Cyborg Integrators"
+job_clone_caretaker_aug_mech_desc: "Cyborgs from our Ultimate Vats are mass integrated here!"
+mod_job_clone_caretaker_aug_mech_add: "Cyborg Intergrater Drones"
+
+######### Building / Tech / Jobs - Hive #######################
+# Basic Vats
+building_clone_vats_basic_hive: "Basic Infested Vats"
+building_clone_vats_basic_hive_desc: "This basic clone vat is part of the hive mind."
+
+# Basic Tech
+tech_cloning_basic_hive: "Infested Clone Vats"
+tech_cloning_basic_hive_desc: "Clone vats can be employed to spawn more drones for the hive."
+
+# Improved Vats
+building_clone_vats_improved_hive: "Large Infested Vats"
+building_clone_vats_improved_hive_desc: "Need more drones? Two spawning pools worth?"
+
+# Improved Tech
+tech_cloning_improved_hive: "Large Clone Vats"
+tech_cloning_improved_hive_desc: "Full sized clone vats can now be infested."
+
+# Augmented Vats
+building_clone_vats_augmented_hive: "Infestation Pits"
+building_clone_vats_augmented_hive_desc: "These 'structures' breed an endless number of bioforms."
+
+# Augmented Tech
+tech_cloning_augmented_hive: "Infestation Pits"
+tech_cloning_augmented_hive_desc: "Let no other empire out grow us for we are the swarm!"
+
+# Augmented Jobs
+job_clone_caretaker_aug_hive: "Infestor Pawn"
+job_clone_caretaker_aug_hive_plural: "Infestor Pawns"
+job_clone_caretaker_aug_hive_desc: "Spawning more Drones."
+mod_job_clone_caretaker_aug_hive_add: "Infestor Jobs"

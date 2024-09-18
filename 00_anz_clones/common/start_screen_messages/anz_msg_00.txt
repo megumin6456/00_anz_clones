@@ -1,0 +1,8 @@
+part = {
+	location = 0
+	localization = start_screen_anz_cyborgs
+
+	trigger = {
+		has_origin = origin_anz_cyborgs_collective
+	}
+}

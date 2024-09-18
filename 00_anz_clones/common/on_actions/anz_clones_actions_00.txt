@@ -1,0 +1,17 @@
+on_game_start = {
+	events = {
+		anz_clones.1 # Register Mod
+	}
+}
+
+on_game_start_country = {
+	events = {
+		anz_clones.3 # Cyborg Origin
+	}
+}
+
+on_pop_assembled = {
+	events = {
+		anz_clones.4 # Cyborg Origin
+	}
+}

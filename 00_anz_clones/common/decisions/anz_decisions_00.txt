@@ -1,0 +1,142 @@
+# Keep your pops in check with cloning limits
+
+decision_enact_cloning_limits = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_politics
+
+	resources = {
+		category = decisions
+
+		# Free of cost for AI
+		cost = {
+			trigger = {
+				owner = { is_ai = yes }
+			}
+		}
+
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			unity = 100
+		}
+	}
+
+	potential = {
+		OR = {
+			has_building = building_clone_vats_basic_organic
+			has_building = building_clone_vats_improved_organic
+			has_building = building_clone_vats_advanced_organic
+			has_building = building_clone_vats_augmented_organic
+		}
+		NOT = {
+			has_modifier = planet_cloning_limits
+		}
+	}
+
+	effect = {
+		add_modifier = {
+			modifier = planet_cloning_limits
+			days = -1
+		}
+	}
+
+	ai_weight = {
+		weight = 5
+
+		# Do we need growth?
+		modifier = {
+			factor = 0
+			OR = {
+				free_housing > 0
+				free_jobs > 0
+				num_free_districts = {
+					type = any
+					value > 0
+				}
+				has_building_construction = yes
+			}
+		}
+	}
+}
+
+# End Cloning Limits
+decision_end_cloning_limits = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_politics
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		has_modifier = planet_cloning_limits
+	}
+
+	effect = {
+		remove_modifier = planet_cloning_limits
+	}
+
+	ai_weight = {
+		weight = 20
+		
+		# Housing
+		modifier = {
+			factor = 0
+			free_housing < 1
+			free_jobs < 1
+		}
+	}
+}
+
+# Become Cyborgs
+decision_become_cyborgs = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+
+	resources = {
+		category = decisions
+		cost = {
+			unity = 5000
+			sr_dark_matter = 5000
+			acot_sr_dark_energy = 5000
+		}
+	}
+
+	potential = {
+		has_global_flag = acot_activated
+		has_major_upgraded_capital = yes
+		has_building = building_clone_vats_augmented_mech
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = decision_become_cyborgs_tooltip_fail_1
+			any_owned_pop = {
+				has_trait = trait_cybernetic
+				NOR = {
+					has_trait = trait_mechanical
+					has_trait = trait_machine_unit
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = decision_become_cyborgs_tooltip_fail_2
+			any_owned_pop = {
+				has_trait = trait_machine_unit
+			}
+		}
+	}
+	
+	effect = {
+		planet_event = {
+			id = anz_clones.2
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
