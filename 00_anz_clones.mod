@@ -6,5 +6,5 @@ tags={
 name="ANZ Advanced Cloning"
 picture="thumbnail.png"
 supported_version="3.8.*"
-path="C:/Users/user/Documents/Paradox Interactive/Stellaris/mod/00_anz_clones"
+path="D:/lijget/games/mods/stellaris/00_anz_clones/00_anz_clones"
 remote_file_id="2602243400"
